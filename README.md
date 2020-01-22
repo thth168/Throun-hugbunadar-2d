@@ -1,2 +1,2 @@
 # Throun-hugbunadar-2d
-Verkefni í þróun hugbúnaðar: Helgi, Mikki mús, Stinni og Þrollur
+Verkefni í þróun hugbúnaðar: Heggi, múffu Mikki, Stinni og Þrollur
