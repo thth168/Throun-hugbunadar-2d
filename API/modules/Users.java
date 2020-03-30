@@ -7,12 +7,9 @@ public class Users {
         db = database;
     }
     
-    public search() {
-        System.out.println(
-            db.query(
-                "SELECT * FROM Users"
-            )
-        );
+    public void search() throws ClassNotFoundException {
+        db.initDatabase();
+        db.searchQuery("SELECT * FROM users");
     }
 
 }
