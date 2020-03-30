@@ -30,7 +30,7 @@ public class Database {
         }
     }
 
-    public static ResultSet search(String param) {
+    public static ResultSet search(String param) throws ClassNotFoundException {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
             stmt = conn.createStatement();
@@ -42,7 +42,7 @@ public class Database {
         }
     }
 
-    public static void searchQuery(String param) {
+    public static void searchQuery(String param) throws ClassNotFoundException{
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
             stmt = conn.createStatement();

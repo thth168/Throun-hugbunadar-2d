@@ -1,3 +1,6 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Users {
     private static Database db;
 
@@ -6,15 +9,20 @@ public class Users {
     }
 
     public String getUser(String name) throws ClassNotFoundException {
-        if(!name.contains(" ")) {
-            ResultSet rs = db.search("SELECT name FROM users WHERE name="+name);
-            if(rs.next()) {
-                return rs.getString("firstName");
+        try {
+            if(!name.contains(" ")) {
+                ResultSet rs = db.search("SELECT name FROM users WHERE name="+name);
+                if(rs.next()) {
+                    return rs.getString("firstName");
+                } else {
+                    return "";
+                }
             } else {
-                return "";
+                return "Invalid Query";
             }
-        } else {
-            return "Invalid Query";
+        } catch(SQLException e) {
+            System.err.println(e.getMessage());
+            return "";
         }
     }
     
