@@ -1,4 +1,4 @@
-import static org.junit.Assert.*;
+import org.junit.Assert.*;
 
 /*
  * Tests the getUser method in our primitive Users implementation
@@ -6,31 +6,31 @@ import static org.junit.Assert.*;
  * The method returns a the first name of the first entry from the result set mathcing
  * the search query parameters
  */
-public class UsersTest {
-    private Users users;
+class UsersTest {
+    Users users;
 
     @Before
-    public void setUp() {
+    void setUp() {
         users = new Users(new Database());
     }
 
     @After
-    public void tearDown() {
+    void tearDown() {
         users = null;
     }
 
     @Test
-    public void testName() {
+    void testName() {
         assertEquals("Snorri", users.getUser("Snorri"));
     }
 
     @Test
-    public void testName2() {
+    void testName2() {
         assertEquals("", users.getUser("Snorrri"));
     }
 
     @Test
-    public void testName3() {
+    void testName3() {
         assertEquals("Invalid Query", users.getUser("Snorri "));
     }
 }
