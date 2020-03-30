@@ -30,6 +30,18 @@ public class Database {
         }
     }
 
+    public static ResultSet search(String param) {
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
+            stmt = conn.createStatement();
+            return stmt.executeQuery(param);
+        }
+        catch(SQLException e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
+    }
+
     public static void searchQuery(String param) {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");

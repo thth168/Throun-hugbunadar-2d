@@ -12,5 +12,6 @@ public class DayTripsAPI {
         Scanner s = new Scanner(System.in);
         String name = s.nextLine();
         users.searchCustomer("SELECT * FROM users WHERE firstName = '"+name+"'");
+        users.searchAll();
     }
 }
