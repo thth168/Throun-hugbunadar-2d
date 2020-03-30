@@ -5,7 +5,13 @@ public class Users {
         db = database;
     }
     
-    public void search() throws ClassNotFoundException {
+    public void searchAll() throws ClassNotFoundException {
         db.searchQuery("SELECT * FROM users");
+    }
+    public void searchAgency() throws ClassNotFoundException {
+
+    }
+    public void searchCustomer(String param) throws ClassNotFoundException {
+        db.searchQuery(param);
     }
 }

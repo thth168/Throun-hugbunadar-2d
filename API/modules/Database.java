@@ -35,11 +35,14 @@ public class Database {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+            ResultSet rs = stmt.executeQuery(param);
             while(rs.next())
             {
                 System.out.println("id = " + rs.getInt("id"));
-                System.out.println("name = " + rs.getString("firstName"));
+                System.out.println("firstName = " + rs.getString("firstName"));
+                System.out.println("lastName = "+ rs.getString("lastName"));
+                System.out.println("gender = "+ rs.getString("gender"));
+                System.out.println("age = "+ rs.getString("age"));
             }
         }
         catch(SQLException e) {
