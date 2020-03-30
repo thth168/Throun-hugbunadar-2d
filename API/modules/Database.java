@@ -3,25 +3,35 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.PreparedStatement;
 
-/**
- * Database
- * @author Styrmir Óli Þorsteinsson.
- *
- */
-public class dbConnection {
-    static String URL = "../test_database.db";
-    public static Connection getDBConnection() throws SQLException {
-        Connection conn = DriverManager.getConnection(URL,"root","");
-        try {
-            return conn;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return conn;
+public class Database {
+    private static Connection conn;
+    private static Statement stmt;
+
+    public String[] query(String param) {
+        stmt.executeQuery(param);
+        return "placeholder";
     }
-    public static void main(String[] args) {
+    
+    public static void main(String[] args) throws Exception {
+        Class.forName("org.sqlite.JDBC");
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
+            stmt = conn.createStatement();
+        }
+        catch(SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        finally {
+            try {
+                if(conn != null) {
+                    conn.close();
+                }
+            }
+            catch(SQLException e) {
+                System.err.println(e);
+            }
+        }
     }
 }
