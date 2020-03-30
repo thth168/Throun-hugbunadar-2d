@@ -50,26 +50,26 @@ public class Database {
         }
     }
     
-    public static void main(String[] args) throws Exception {
-        Class.forName("org.sqlite.JDBC");
-        conn = null;
-        try {
-            conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
-            stmt = conn.createStatement();
-            searchQuery("test");
-        }
-        catch(SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        finally {
-            try {
-                if(conn != null) {
-                    conn.close();
-                }
-            }
-            catch(SQLException e) {
-                System.err.println(e);
-            }
-        }
-    }
+    // public static void main(String[] args) throws Exception {
+    //     Class.forName("org.sqlite.JDBC");
+    //     conn = null;
+    //     try {
+    //         conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
+    //         stmt = conn.createStatement();
+    //         searchQuery("test");
+    //     }
+    //     catch(SQLException e) {
+    //         System.err.println(e.getMessage());
+    //     }
+    //     finally {
+    //         try {
+    //             if(conn != null) {
+    //                 conn.close();
+    //             }
+    //         }
+    //         catch(SQLException e) {
+    //             System.err.println(e);
+    //         }
+    //     }
+    // }
 }
