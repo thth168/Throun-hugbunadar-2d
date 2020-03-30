@@ -6,10 +6,10 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 
 public class Database {
-    private Connection conn;
-    private Statement stmt;
+    private static Connection conn;
+    private static Statement stmt;
 
-    public void searchQuery(String param) {
+    public static void searchQuery(String param) {
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM users");
             while(rs.next())
@@ -42,12 +42,13 @@ public class Database {
             }
         }
     }
-    public void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         Class.forName("org.sqlite.JDBC");
         conn = null;
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
             stmt = conn.createStatement();
+            searchQuery("test");
         }
         catch(SQLException e) {
             System.err.println(e.getMessage());
