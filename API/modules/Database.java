@@ -9,21 +9,9 @@ public class Database {
     private static Connection conn;
     private static Statement stmt;
 
-    public static void searchQuery(String param) {
-        try {
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-            while(rs.next())
-            {
-                System.out.println("id = " + rs.getInt("id"));
-                System.out.println("name = " + rs.getString("firstName"));
-            }
-        }
-        catch(SQLException e) {
-            System.err.println(e.getMessage());
-        }
-    }
-    public void initDatabase() throws ClassNotFoundException {
+    public Database () throws ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
+        conn = null;
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
             stmt = conn.createStatement();
@@ -42,6 +30,23 @@ public class Database {
             }
         }
     }
+
+    public static void searchQuery(String param) {
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:DayTriper.db");
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+            while(rs.next())
+            {
+                System.out.println("id = " + rs.getInt("id"));
+                System.out.println("name = " + rs.getString("firstName"));
+            }
+        }
+        catch(SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    
     public static void main(String[] args) throws Exception {
         Class.forName("org.sqlite.JDBC");
         conn = null;

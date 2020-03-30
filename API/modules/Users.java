@@ -1,14 +1,11 @@
 public class Users {
+    private static Database db;
 
-    private Database db;
-    
     public Users (Database database) {
         db = database;
     }
     
     public void search() throws ClassNotFoundException {
-        db.initDatabase();
         db.searchQuery("SELECT * FROM users");
     }
-
 }
