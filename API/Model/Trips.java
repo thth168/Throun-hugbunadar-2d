@@ -1,5 +1,7 @@
 public class Trips {
-    public static void main(String[] args) {
-        
-    }
+    public int price;
+    public Date tourStart;
+    public Date tourFinish;
+    public int userId;
+    
 }
