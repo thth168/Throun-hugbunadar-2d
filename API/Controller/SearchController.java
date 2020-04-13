@@ -1,10 +1,13 @@
 import javax.xml.stream.Location;
 
+import javafx.event.ActionEvent;
+import sun.applet.Main;
+
 
 // connection to db and imports still needed
 
 public class SearchController{
-    public static Database db;
+    public static Database db = new Database();
     public String tourCategory;
     public int tourPrice;
     public int numOfSeatsLeft;
