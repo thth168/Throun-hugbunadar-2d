@@ -6,14 +6,14 @@ public class Booking {
     private int seatNum;
 
     public Trip getTrip() {
-        return this.trip;
+        return trip;
     }
 
     public Customer getCustomer() {
-        return this.customer;
+        return customer;
     }
 
     public int getSeat() {
-        return this.seatNum;
+        return seatNum;
     }
 }

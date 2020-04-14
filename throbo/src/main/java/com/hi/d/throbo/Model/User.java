@@ -5,10 +5,10 @@ public class User {
     private String name;
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 }
