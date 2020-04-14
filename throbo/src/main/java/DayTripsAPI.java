@@ -1,12 +1,12 @@
 import java.util.Scanner;
 import java.sql.ResultSet;
 import com.hi.d.throbo.Database.Database;
-import com.hi.d.throbo.Model.Users;
+import com.hi.d.throbo.Model.User;
 import java.sql.SQLException;
 
 public class DayTripsAPI {
     private static Database db;
-    private static Users users;
+    private static User users;
     
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Scanner s = new Scanner(System.in);
