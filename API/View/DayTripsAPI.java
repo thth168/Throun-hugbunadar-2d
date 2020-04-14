@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import db.Database;
 
 public class DayTripsAPI {
     private static Database db;
@@ -33,7 +34,7 @@ public class DayTripsAPI {
     
         @Test 
         public void testingSearch(){
-            ...
+            // ...
             assertEquals(user);
         }
 }
