@@ -11,11 +11,11 @@ public class Customer extends User {
         super(rs);
     }
 
-    public Booking[] getBookings() {
-        return bookings;
+    public String getBookings() {
+        return "Bookings";
     }
 
-    public Review[] getReviews() {
-        return reviews;
+    public String getReviews() {
+        return "Review";
     }
 }

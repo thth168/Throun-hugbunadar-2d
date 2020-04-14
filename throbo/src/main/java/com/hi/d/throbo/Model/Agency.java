@@ -10,7 +10,7 @@ public class Agency extends User {
         super(rs);
     }
     
-    public Trip[] getTrips() {
-        return trips;
+    public String getTrips() {
+        return "Trips";
     }
 }
