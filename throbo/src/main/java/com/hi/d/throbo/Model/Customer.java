@@ -1,14 +1,14 @@
 package com.hi.d.throbo.Model;
 
-public class Customer extends Users {
-    private Bookings[] bookings;
+public class Customer extends User {
+    private Booking[] bookings;
     private Reviews[] reviews;
 
-    public Bookings[] getbookings() {
-        return bookings;
+    public Booking[] getBookings() {
+        return this.bookings;
     }
 
     public Reviews[] getReviews() {
-        return reviews;
+        return this.reviews;
     }
 }
