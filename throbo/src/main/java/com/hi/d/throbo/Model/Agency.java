@@ -1,9 +1,9 @@
 package com.hi.d.throbo.Model;
 
-public class Agency extends Users {
-    private Trips[] trips;
+public class Agency extends User {
+    private Trip[] trips;
     
-    public Trips[] getTrips() {
-        return trips;
+    public Trip[] getTrips() {
+        return this.trips;
     }
 }
