@@ -12,30 +12,30 @@ public class Trip {
     private Agency agency;
 
     public double getRating() {
-        return this.rating;
+        return rating;
     }
 
     public Reviews[] getReviews() {
-        return this.reviews;
+        return reviews;
     }
 
     public int getPrice() {
-        return this.price;
+        return price;
     }
 
     public boolean getAvailibility() {
-        return this.availability;
+        return availability;
     }
 
     public String[] getTags() {
-        return this.tags;
+        return tags;
     }
 
     public Date getDate() {
-        return this.date;
+        return date;
     }
 
     public Agency getAgency() {
-        return this.agency;
+        return agency;
     }
 }

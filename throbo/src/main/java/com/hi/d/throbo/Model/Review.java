@@ -7,18 +7,18 @@ public class Review {
     private int rating;
 
     public Trip getTrip() {
-        return this.trip;
+        return trip;
     }
 
     public String getReview() {
-        return this.review;
+        return review;
     }
 
     public Customer getReviewer() {
-        return this.reviewer;
+        return reviewer;
     }
 
     public int getRating() {
-        return this.rating;
+        return rating;
     }
 }

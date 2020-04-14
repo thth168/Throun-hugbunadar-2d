@@ -5,10 +5,10 @@ public class Customer extends User {
     private Reviews[] reviews;
 
     public Booking[] getBookings() {
-        return this.bookings;
+        return bookings;
     }
 
     public Reviews[] getReviews() {
-        return this.reviews;
+        return reviews;
     }
 }
