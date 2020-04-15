@@ -1,14 +1,21 @@
 package com.hi.d.throbo.Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Customer extends User {
     private Booking[] bookings;
-    private Reviews[] reviews;
-
-    public Booking[] getBookings() {
-        return bookings;
+    private Review[] reviews;
+    
+    public Customer(ResultSet rs) throws SQLException{
+        super(rs);
     }
 
-    public Reviews[] getReviews() {
-        return reviews;
+    public String getBookings() {
+        return "Bookings";
+    }
+
+    public String getReviews() {
+        return "Review";
     }
 }

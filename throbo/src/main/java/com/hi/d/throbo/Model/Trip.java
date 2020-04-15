@@ -15,7 +15,7 @@ public class Trip {
         return rating;
     }
 
-    public Reviews[] getReviews() {
+    public Review[] getReviews() {
         return reviews;
     }
 

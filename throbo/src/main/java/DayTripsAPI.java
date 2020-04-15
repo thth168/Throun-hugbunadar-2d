@@ -1,15 +1,17 @@
 import java.util.Scanner;
 import java.sql.ResultSet;
 import com.hi.d.throbo.Database.Database;
-import com.hi.d.throbo.Model.Users;
+import com.hi.d.throbo.Model.Agency;
+import com.hi.d.throbo.Model.Customer;
+import com.hi.d.throbo.Model.WebMaster;
 import java.sql.SQLException;
 
 public class DayTripsAPI {
     private static Database db;
-    private static Users users;
+    private static Scanner s;
     
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Scanner s = new Scanner(System.in);
+        s = new Scanner(System.in);
         try {
             db = Database.getInstance();
         } catch(ClassNotFoundException e) {
@@ -30,6 +32,85 @@ public class DayTripsAPI {
             return;
         }
         System.out.println("Welcome back " + rs.getString("firstName"));
+        System.out.println("To exit type \"exit\", for help type \"help\"");
+        switch(rs.getInt("userType_id")) {
+            case 1:
+                webMasterHandler(new WebMaster(rs));
+                break;
+            case 2:
+                agencyHandler(new Agency(rs));
+                break;
+            default:
+                customerHandler(new Customer(rs));
+                break;
+        }
         db.close();
+        System.out.println("Thank you, come again zoon.");
+    }
+    
+    public static void webMasterHandler(WebMaster w) {
+        String input = s.next();
+        while(!input.equals("exit")){
+            switch(input){
+                case "help":
+                    System.out.println("\n\"exit\": exit out of the program\n"
+                            + "\"help\": displays this message\n"
+                            + ""
+                            + "");
+                    break;
+                default:
+                    System.out.println("Invalid input, type \"help\" for help");
+                    break;
+            }
+            System.out.print("Awaiting next input: ");            
+            input = s.next();
+        }
+    }
+    
+    public static void agencyHandler(Agency a) {
+        String input = s.next();
+        while(!input.equals("exit")){
+            switch(input){
+                case "help":
+                    System.out.println("\n\"exit\": exit out of the program\n"
+                            + "\"help\": displays this message\n"
+                            + "\"trips\": displays all the awailable trips\n"
+                            + "");
+                    break;
+                case "trips":
+                    System.out.println(a.getTrips());
+                    break;
+                default:
+                    System.out.println("Invalid input, type \"help\" for help");
+                    break;
+            }
+            System.out.print("Awaiting next input: ");            
+            input = s.next();
+        }
+    }
+    
+    public static void customerHandler(Customer c) {
+        String input = s.next();
+        while(!input.equals("exit")){
+            switch(input){
+                case "help":
+                    System.out.println("\n\"exit\": exit out of the program\n"
+                            + "\"help\": displays this message\n"
+                            + "\"bookings\": displays all active bookings\n"
+                            + "\"reviews\": displays all past reviews\n");
+                    break;
+                case "bookings":
+                    System.out.println(c.getBookings());
+                    break;
+                case "reviews":
+                    System.out.println(c.getReviews());
+                    break;
+                default:
+                    System.out.println("Invalid input, type \"help\" for help");
+                    break;
+            }
+            System.out.print("Awaiting next input: ");
+            input = s.next();
+        }
     }
 }
